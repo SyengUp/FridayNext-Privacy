@@ -1,55 +1,99 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FridayNext 隐私政策</title>
-<style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; max-width: 720px; margin: 0 auto; padding: 40px 24px; line-height: 1.7; color: #1d1d1f; background: #fff; }
-  h1 { font-size: 28px; margin-bottom: 8px; }
-  h2 { font-size: 20px; margin-top: 32px; }
-  .updated { color: #86868b; font-size: 14px; margin-bottom: 32px; }
-  a { color: #0071e3; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="FridayNext 与 FridayTunnel 隐私政策">
+  <title>FridayNext 隐私政策</title>
+  <link rel="stylesheet" href="./legal.css">
 </head>
 <body>
+  <main>
+    <nav aria-label="法律与支持页面">
+      <a class="current" href="./">隐私政策</a>
+      <a href="./terms.html">使用条款</a>
+      <a href="./support.html">技术支持</a>
+    </nav>
 
-<h1>FridayNext 隐私政策</h1>
-<p class="updated">最后更新日期：2026年5月13日</p>
+    <h1>FridayNext 隐私政策</h1>
+    <p class="updated">生效及最后更新日期：2026年7月24日</p>
 
-<p>FridayNext（以下简称「本应用」）是一款面向 OpenClaw 用户的自托管 AI 对话客户端。我们高度重视你的隐私。本隐私政策说明了本应用如何处理你的数据。</p>
+    <p>FridayNext（以下简称“本应用”）是一款连接用户自有 OpenClaw 网关的客户端。FridayTunnel 是本应用提供的可选公网中继订阅服务。本政策说明本应用及 FridayTunnel 如何处理数据。</p>
 
-<h2>数据收集与存储</h2>
-<p><strong>本应用不收集任何个人数据。</strong>所有对话内容、会话记录、附件及配置信息均存储在你的设备和/或你自己的 OpenClaw 服务器上。本应用的开发者无法访问、查看或收集你的任何对话数据或个人信息。</p>
-<p>本应用不集成任何第三方分析 SDK、广告 SDK 或埋点服务。</p>
+    <section class="summary" aria-label="隐私摘要">
+      <strong>核心原则</strong>
+      <p>我们不使用你的对话、提示词、工具调用结果或附件内容做广告、分析或模型训练。FridayTunnel 只转发端到端加密的数据，我们无法解密其中的任何数据内容。</p>
+    </section>
 
-<h2>网络通信</h2>
-<p>本应用仅与你指定的 OpenClaw 网关服务器进行通信。所有网络请求均直接在你的设备与你的服务器之间进行，不会经过任何第三方服务器。本应用不提供也不依赖任何云端中转服务。</p>
+    <h2>一、由你控制的数据</h2>
+    <p>对话、会话记录、附件和网关配置主要保存在你的设备和你自己的 OpenClaw 网关中。删除本地会话或卸载本应用会删除相应的设备本地数据；OpenClaw 网关中的副本由你按照自己的网关配置管理。</p>
+    <p>使用本地连接或你自行配置的公网连接时，数据直接在你的设备与你指定的网关之间传输，不经过 FridayTunnel 控制面或官方中继。</p>
 
-<h2>设备权限使用说明</h2>
-<p>本应用会请求以下设备权限，所有权限均仅在功能需要时使用：</p>
-<ul>
-  <li><strong>麦克风</strong> — 用于语音输入功能，将你说的话实时转录为文字。录音数据仅在本地处理，不会上传至任何服务器。</li>
-  <li><strong>语音识别</strong> — 用于将语音转换为文字消息。识别过程由 iOS 系统提供，遵循 Apple 的隐私保护机制。</li>
-  <li><strong>相机</strong> — 用于扫描 OpenClaw 网关配对二维码，以及在聊天中拍摄照片或扫描文档作为附件发送给 Agent。相机仅在你主动使用时开启。</li>
-  <li><strong>位置信息</strong> — 仅在连接的 OpenClaw Agent 请求时获取一次位置信息。本应用不会在后台追踪你的位置。</li>
-  <li><strong>照片库（写入）</strong> — 仅用于将 Agent 生成的图片等内容保存到你的照片库。本应用不会读取你的照片库。</li>
-</ul>
+    <h2>二、FridayTunnel 处理的数据</h2>
+    <p>仅当你配对或使用 FridayTunnel 时，为提供订阅验证、公网连接、安全防护和故障恢复，我们会处理以下数据：</p>
+    <ul>
+      <li><strong>假名账户标识：</strong>随机生成并保存在钥匙串中的 UUID（App Account Token）。它用于关联订阅和多设备权益；我们不会从 Apple 获得你的 Apple ID、姓名、电话号码或付款卡信息。</li>
+      <li><strong>订阅信息：</strong>Apple 签名交易、交易标识、产品标识、订阅状态、试用或到期时间、退款与续订状态。</li>
+      <li><strong>设备与安全信息：</strong>设备生成的标识、App Attest 证明、公钥、计数器和验证结果，用于确认请求来自真实应用并防止重放和滥用。</li>
+      <li><strong>隧道信息：</strong>网关的派生标识、隧道与子域名、节点、设备授权、TLS 公钥指纹及连接状态。</li>
+      <li><strong>必要的网络元数据：</strong>连接时间、IP 地址、数据量、请求结果和安全事件。中继在网络层需要处理这些信息，但不会用其建立广告画像。</li>
+      <li><strong>加密附件元数据：</strong>随机对象标识、密文大小、上传或下载时间和当月累计流量。附件在客户端加密后才会进入对象存储，文件名、明文和解密密钥不会交给中继或对象存储。</li>
+    </ul>
+    <p>本应用不集成第三方广告 SDK，也不使用第三方分析或用户行为埋点服务。</p>
 
-<h2>数据安全</h2>
-<p>对话记录以 JSONL 格式存储在设备本地。与网关之间的通信支持 TLS 加密及证书指纹绑定（TLS Pinning）。你应自行确保 OpenClaw 网关服务器的安全配置。</p>
+    <h2>三、处理目的</h2>
+    <p>上述数据仅用于完成配对、验证订阅与退款状态、签发或撤销公网授权、路由加密流量、执行用量与滥用限制、排查故障、恢复服务以及履行必要的法律和 App Store 义务。</p>
 
-<h2>儿童隐私</h2>
-<p>本应用不面向 13 岁以下儿童，亦不会有意收集儿童的个人信息。</p>
+    <h2>四、端到端加密与网络边界</h2>
+    <p>FridayTunnel 的数据面采用客户端到 OpenClaw 网关的 TLS 端到端加密，中继不持有会话解密密钥，无法读取对话、提示词、工具结果、网页内容或其他经隧道传输的数据。公网附件旁路使用由配对双方持有的密钥加密，控制面和对象存储只接触密文。</p>
+    <p>端到端加密不会隐藏所有网络元数据。中继和基础设施提供商仍可能看到连接双方的 IP 地址、连接时间、目标子域名和流量体积。</p>
 
-<h2>隐私政策更新</h2>
-<p>本隐私政策可能会不时更新。更新后的政策将发布在此页面，重大变更会通过应用更新说明告知。</p>
+    <h2>五、服务提供商</h2>
+    <p>我们仅在提供功能所必需的范围内使用以下服务：</p>
+    <ul>
+      <li><strong>Apple：</strong>通过 StoreKit、App Store Server Notifications、App Store Server API 和 App Attest 处理购买、续订、退款、安全验证及相关状态。退款请求处理中，我们可能按 Apple 的接口要求提供订阅使用情况。</li>
+      <li><strong>中继与对象存储基础设施：</strong>用于转发端到端加密流量和短期保存加密附件。基础设施提供商只能按其职责处理密文及必要网络元数据。</li>
+      <li><strong>GitHub Pages：</strong>仅托管本政策、使用条款和技术支持页面；访问这些页面时适用 GitHub 自身的隐私规则。</li>
+    </ul>
+    <p>我们不出售你的数据，不将数据提供给广告商，也不允许服务提供商将 FridayTunnel 数据用于广告或画像。FridayTunnel 当前的中继和对象存储主要位于中国境内；从其他国家或地区访问时，必要数据可能被传输至中国境内处理。</p>
 
-<h2>联系我们</h2>
-<p>如果你对本隐私政策有任何疑问，请通过以下方式联系：</p>
-<ul>
-  <li><a href="https://github.com/SyengUp/FridayNext-Privacy/issues">GitHub Issues</a></li>
-</ul>
+    <h2>六、保存期限</h2>
+    <ul>
+      <li>设备本地数据保存至你主动删除相应会话、清除数据或卸载应用。</li>
+      <li>加密附件由对象存储生命周期规则自动删除，最长不超过 7 天。</li>
+      <li>附件累计流量按自然月统计，进入下一统计周期后清理上一周期计数。</li>
+      <li>已过期的设备授权最多保留 90 天，用于故障排查和安全审计。</li>
+      <li>控制面每日备份仅保留最近 60 份。</li>
+      <li>一次性配对资格记录、Apple 交易标识、隧道归属和必要安全审计记录可能保存更长时间，用于防止重复领取、交易重放和滥用，处理争议以及履行法律或 Apple 平台要求。此类记录不包含对话或附件明文。</li>
+    </ul>
 
+    <h2>七、你的选择与权利</h2>
+    <p>FridayTunnel 是可选服务。本地连接和自建连接无需订阅。你可以在 Apple 账户的订阅设置中取消续订；取消、到期或退款后，FridayTunnel 会停止连接，但不会删除你的本地会话或自建连接配置。</p>
+    <p>你可以请求查询、更正或删除可关联的 FridayTunnel 服务数据。请发送邮件至 <a href="mailto:s826135274@icloud.com">s826135274@icloud.com</a>，说明请求类型，并且不要在公开 Issue 中粘贴交易凭证、Token 或其他秘密。为保护账户安全，我们可能需要核验与随机 App Account Token 或交易的关联。依法或为防止欺诈、重复领取和交易重放必须保留的最少记录，可能无法立即删除。</p>
+
+    <h2>八、设备权限</h2>
+    <ul>
+      <li><strong>本地网络：</strong>发现和连接局域网内由你控制的 OpenClaw 网关。</li>
+      <li><strong>相机：</strong>扫描配对二维码，以及在你主动选择时拍摄聊天附件。</li>
+      <li><strong>照片：</strong>通过系统照片选择器选取你指定的内容；写入权限仅用于将你选择的内容保存到照片库。</li>
+      <li><strong>位置：</strong>仅在连接的 OpenClaw Agent 发起请求且你授权时获取位置；本应用不会持续在后台追踪位置。</li>
+    </ul>
+
+    <h2>九、儿童隐私</h2>
+    <p>FridayNext 不面向儿童。未达到所在地区可独立同意处理个人信息年龄的用户，应在监护人同意和指导下使用。如你认为儿童数据被错误处理，请通过下方联系方式告知我们。</p>
+
+    <h2>十、政策更新</h2>
+    <p>我们可能因功能、法律或基础设施变化更新本政策。重大变化会通过此页面、应用更新说明或应用内通知告知，并在页面顶部更新日期。</p>
+
+    <h2>十一、联系我们</h2>
+    <p>隐私请求请发送至 <a href="mailto:s826135274@icloud.com">s826135274@icloud.com</a>；一般问题可前往 <a href="https://github.com/SyengUp/FridayNext/issues">FridayNext GitHub Issues</a>。请勿在公开 Issue 中提交任何秘密或个人交易信息。</p>
+
+    <footer>
+      <a href="./terms.html">FridayTunnel 使用条款</a>
+      <span>·</span>
+      <a href="./support.html">技术支持</a>
+    </footer>
+  </main>
 </body>
 </html>
