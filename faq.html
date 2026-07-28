@@ -21,89 +21,107 @@
     <h1>常见问题</h1>
     <p class="updated">最后更新日期：2026年7月28日</p>
 
-    <h2>基础</h2>
+    <h2>入门</h2>
 
     <h3>FridayNext 是什么？</h3>
-    <p>一个 iOS 客户端，连接<strong>你自己的</strong> OpenClaw 网关。它本身不提供 AI 能力——模型、API Key、会话数据都在你自己的机器上，FridayNext 只是那台机器在你口袋里的入口。</p>
+    <p>它是你自己那台电脑上的 AI 助手在 iPhone 上的入口。模型、API Key、所有对话记录都在你自己的机器里，FridayNext 只是让你在手机上跟它说话。</p>
+    <p>换句话说，它不是又一个 AI 聊天 App——它是<strong>你的</strong> AI 的遥控器。</p>
 
     <h3>我需要准备什么？</h3>
-    <p>一台常开的机器（Mac、Linux 服务器、NAS 均可）跑 OpenClaw，以及你自己的模型 API Key。OpenClaw 见 <a href="https://openclaw.ai">openclaw.ai</a>。FridayNext 不代售 API Key，也不代理模型调用。</p>
+    <p>一台常开的电脑（Mac、Linux 服务器、NAS 都行）跑 OpenClaw，以及你自己的模型 API Key。OpenClaw 是开源的 AI Agent 网关，见 <a href="https://openclaw.ai">openclaw.ai</a>。</p>
+    <p>我们不代售 API Key，也不代理模型调用——你付给模型厂商的钱和你跟我们的关系是两回事。</p>
 
     <h3>需要付费吗？</h3>
-    <p>局域网连接永久免费，不需要订阅、不需要账号。只有当你想在外面也能连回家里的网关，且不想自己折腾内网穿透时，才需要 FridayTunnel 订阅（¥38/年，含 2 周免费试用）。</p>
+    <p>在家里连自己的网关：永久免费，不需要账号，不需要订阅。</p>
+    <p>出门在外还想连回家：这需要一条公网通道。你可以自己配 Tailscale 或反向代理（也是免费的），或者订阅 FridayTunnel 让我们替你搞定（¥68/年，含 2 周免费试用）。</p>
 
-    <h3>支持哪些 iOS 版本？</h3>
-    <p>iOS 26.0 及以上。</p>
-
-    <h3>有 Android 版吗？</h3>
-    <p>没有，目前仅 iOS。</p>
+    <h3>支持哪些设备？</h3>
+    <p>iPhone，iOS 26.0 及以上。暂无 Android 版。</p>
 
     <h2>FridayTunnel</h2>
 
-    <h3>它解决什么问题？</h3>
-    <p>让你在外面能连回家里的网关，不用配端口映射、DDNS 或公网 IP。本质上是替你养一根隧道——¥38/年差不多正好是一台入门云服务器的促销年费。</p>
+    <h3>它到底做什么？</h3>
+    <p>让你在外面能连回家里的网关，不用配端口映射、不用 DDNS、不用公网 IP、不用碰路由器设置。</p>
+    <p>本质上是我们替你养一根隧道并保证它一直通着。¥68/年，大约每月 5.7 元。</p>
 
     <h3>你们能看到我的对话吗？</h3>
-    <p>不能。隧道是端到端加密的，加密终点在你自己的网关上，中继按 TLS 的明文 SNI 字段路由、不解密。附件在客户端加密后才上传，密钥从不离开配对双方。详见<a href="./transparency.html">透明度页</a>，那里也诚实列出了我们<strong>确实</strong>能看到的东西（网络元数据）。</p>
+    <p>不能。对话在离开 iPhone 前就已加密，到你自己的网关才解开，中继在中间只转发密文。</p>
+    <p><a href="./transparency.html">透明度页</a>里详细写了这是怎么做到的，也诚实列出了我们<strong>确实</strong>能看到的东西（IP、连接时间、流量大小这类元数据）——任何转发流量的服务都绕不开这些。</p>
 
-    <h3>为什么不用 Tailscale 就好？</h3>
-    <p>完全可以。Tailscale、frp、Cloudflare Tunnel、反向代理，FridayNext 都支持——只要设备能访问到网关即可。FridayTunnel 只是一个省事的默认选项，不是必需品。</p>
+    <h3>为什么不直接用 Tailscale？</h3>
+    <p>完全可以，我们不拦着。Tailscale、frp、Cloudflare Tunnel、Nginx 反向代理，FridayNext 都支持——只要你的手机能访问到网关就行。</p>
+    <p>FridayTunnel 卖的是「不用管」：扫个码就通了，不用理解 NAT 穿透，也不用在换网络时排查为什么连不上。如果你享受折腾这些，那你确实不需要它。</p>
 
-    <h3>试用多久？到期怎么办？</h3>
-    <p>2 周，通过 Apple 标准免费试用提供，期间可随时取消不扣费。到期后隧道停止，但本地会话、附件、网关配置<strong>一律不动</strong>；回到 Wi-Fi 下照常使用，或换自建通道继续在外用。我们不做数据锁定。</p>
+    <h3>试用怎么算？到期会怎样？</h3>
+    <p>2 周免费试用，由 Apple 提供，期间随时取消不扣费。</p>
+    <p>到期后公网连接停止，但你的会话记录、附件、网关配置<strong>一样都不会动</strong>。回到家里的 Wi-Fi 照常用，或者换成自建通道继续在外面用。我们不做数据绑架。</p>
 
     <h3>一个订阅能用几台设备？</h3>
-    <p>订阅绑 Apple ID，名下设备共享。隧道上限 3 条/Apple ID（一条隧道 = 一个 Apple ID 到一个网关的公网路由）。</p>
+    <p>订阅绑你的 Apple ID，名下的 iPhone、iPad 都能用。最多可以连 3 个不同的网关（比如家里一台、办公室一台）。</p>
 
-    <h3>有流量限制吗？</h3>
-    <p>对话和工具调用没有单独限额。附件走对象存储旁路，订阅期每月 3 GB、试用期 300 MB，单个文件上限 100 MB。超出后附件收发受限，但对话不受影响，次月自动重置。</p>
+    <h3>有速度或流量限制吗？</h3>
+    <p>聊天和工具调用不限量。附件走单独通道，每月 3 GB（试用期 300 MB），单个文件最大 100 MB，隧道速度约 4 MB/s。</p>
+    <p>这个限额对聊天来说远远够用，但不足以让人拿去当廉价 VPN——这是故意的，否则会挤占其他用户的带宽。</p>
 
-    <h2>配对与连接</h2>
+    <h2>连接与配对</h2>
 
     <h3>怎么配对？</h3>
-    <p>在网关上运行 <code>npx -y @syengup/friday-channel-next</code> 生成配对二维码，用 App 扫描。二维码 10 分钟有效、一次性使用，扫过即作废。</p>
+    <p>在跑 OpenClaw 的机器上运行 <code>npx -y @syengup/friday-channel-next</code>，按提示生成配对二维码，用 App 扫一下就好。</p>
+    <p>二维码 10 分钟内有效、只能用一次——扫过就作废，捡到的人也用不了。建议在家里的网络下完成首次配对。</p>
 
     <h3>扫码后连不上</h3>
-    <p>常见原因：设备与网关不在同一局域网且尚未订阅 FridayTunnel；网关未运行或网络不通；二维码已超过 10 分钟。先在同一 Wi-Fi 下重新生成二维码并尽快扫描。</p>
+    <p>按可能性从高到低：</p>
+    <ul>
+      <li>二维码超过 10 分钟了——重新生成一个。</li>
+      <li>手机和电脑不在同一个 Wi-Fi 下，且还没订阅 FridayTunnel。</li>
+      <li>OpenClaw 没在运行，或者那台机器睡着了。</li>
+      <li>路由器或防火墙拦了。</li>
+    </ul>
 
-    <h3>局域网正常，出门连不上</h3>
-    <p>确认网关保持开机联网，然后在连接页查看 FridayTunnel 状态。未订阅、已到期、已退款，或网关端插件版本过旧都会导致公网连接不建立——插件升级同样是 <code>npx -y @syengup/friday-channel-next</code>。</p>
+    <h3>在家好用，出门就连不上</h3>
+    <p>先确认电脑没休眠、网络正常，然后在 App 的连接页看 FridayTunnel 状态。</p>
+    <p>如果状态异常，通常是订阅未生效/已到期，或者网关上的插件版本太旧。升级插件同样是 <code>npx -y @syengup/friday-channel-next</code>。</p>
 
-    <h3>能配对多个网关吗？</h3>
-    <p>可以，在连接页切换，同一时间连接一个。</p>
+    <h3>让电脑一直开着不费电吗？</h3>
+    <p>Mac 需要在「节能」设置里关掉自动睡眠，否则合上盖子后网关就离线了。低功耗的 Mac mini 或 NAS 常年开机的电费大约每月几元。</p>
 
     <h2>订阅与退款</h2>
 
-    <h3>买了但状态没更新</h3>
-    <p>保持联网、重新打开订阅页等待同步。仍未生效可点「恢复购买」（不会重复扣费）或重启应用。</p>
+    <h3>买了但显示未订阅</h3>
+    <p>保持联网等一两分钟。还是不行就点「恢复购买」（不会重复扣费），或者重启 App。</p>
 
-    <h3>什么时候用「恢复购买」？</h3>
-    <p>换设备、重装应用，或 App Store 显示有效订阅但应用没识别时。它不会创建新订阅。</p>
+    <h3>什么时候需要「恢复购买」？</h3>
+    <p>换了新手机、重装了 App，或者 App Store 显示有订阅但 App 没认出来。它只是重新同步状态，不会创建新订阅。</p>
 
     <h3>怎么取消或退款？</h3>
-    <p>取消续订：iPhone「设置」→ Apple 账户 → 订阅。退款：<a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>，是否批准由 Apple 决定。退款后公网授权会被撤销，本地数据不受影响。</p>
+    <p>取消续订：iPhone「设置」→ 点你的头像 → 订阅 → FridayNext。取消后仍可用到当前周期结束。</p>
+    <p>退款：去 <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> 申请，批不批由 Apple 决定。退款后公网连接会停止，本地数据不受影响。</p>
 
-    <h2>安全与隐私</h2>
+    <h3>换 Apple ID 后订阅还在吗？</h3>
+    <p>订阅跟着 Apple ID 走。换设备但用同一个 Apple ID，点「恢复购买」就能接着用；换成另一个 Apple ID 则需要重新订阅。</p>
 
-    <h3>数据存在哪？</h3>
-    <p>会话、网关配置、附件缓存、证书指纹都在设备本地（iOS 沙盒 + iCloud 加密备份），不上传。订阅 FridayTunnel 后，控制面另存假名标识（随机 UUID）、订阅状态、设备授权和必要网络元数据——不含内容。</p>
+    <h2>隐私与安全</h2>
 
-    <h3>会收集使用数据或崩溃报告吗？</h3>
-    <p>不会。没有第三方分析、埋点或崩溃上报 SDK。遇到问题需要你主动反馈。</p>
+    <h3>我的数据存在哪？</h3>
+    <p>会话记录、网关配置、附件缓存都在你的 iPhone 本地和你自己的网关上，不上传。</p>
+    <p>如果订阅了 FridayTunnel，我们的服务器上另有一个随机生成的匿名标识、订阅状态和设备授权记录——没有你的姓名、Apple ID、手机号或付款信息，Apple 也不会把这些给我们。</p>
 
-    <h3>设备丢了怎么办？</h3>
-    <p>用「查找」远程抹除可清除本地数据。网关上的副本由你自己管理。过期的设备授权 90 天后自动清理。</p>
+    <h3>你们会收集使用数据或崩溃报告吗？</h3>
+    <p>不会。没有第三方分析、没有埋点、没有崩溃上报。这也意味着出问题时我们完全依赖你告诉我们。</p>
 
-    <h3>怎么报告安全漏洞？</h3>
-    <p>走 <a href="https://github.com/SyengUp/openclaw-fridaynext-channel/security/advisories">GitHub Security Advisory</a> 私密报告，请勿公开提 Issue。详见<a href="./transparency.html">透明度页</a>。</p>
+    <h3>手机丢了怎么办？</h3>
+    <p>用「查找」远程抹除即可清除本地数据。你电脑上的那份记录不受影响，由你自己管理。过期的设备授权 90 天后自动清理。</p>
 
-    <h2>开源</h2>
+    <h3>发现安全问题怎么反馈？</h3>
+    <p>请走 <a href="https://github.com/SyengUp/openclaw-fridaynext-channel/security/advisories">GitHub Security Advisory</a> 私下告诉我们，别公开发帖，详见<a href="./transparency.html">透明度页</a>。</p>
 
-    <h3>哪些部分开源了？</h3>
-    <p>网关插件已开源：<a href="https://github.com/SyengUp/openclaw-fridaynext-channel">openclaw-fridaynext-channel</a>，包含附件加密的完整实现，加密声明可直接对着代码核。iOS 应用与控制面尚未开源。</p>
+    <h2>其他</h2>
 
-    <h3>能贡献吗？</h3>
-    <p>欢迎，请到插件仓库提 Issue 或 PR。</p>
+    <h3>能自己检查你们的加密是不是真的吗？</h3>
+    <p>能。跑在你网关上的那部分代码是公开的：<a href="https://github.com/SyengUp/openclaw-fridaynext-channel">openclaw-fridaynext-channel</a>，附件加密的完整实现就在里面。</p>
+
+    <h3>怎么反馈问题或提建议？</h3>
+    <p>到 <a href="https://github.com/SyengUp/openclaw-fridaynext-channel/issues">GitHub Issues</a> 提，或者发邮件到 <a href="mailto:s826135274@icloud.com">s826135274@icloud.com</a>。提问时请别贴上配对二维码或访问令牌。</p>
 
     <footer>
       <a href="./">隐私政策</a>

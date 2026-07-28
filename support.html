@@ -18,44 +18,61 @@
       <a href="./faq.html">常见问题</a>
     </nav>
 
-    <h1>FridayNext 技术支持</h1>
-    <p class="updated">最后更新日期：2026年7月24日</p>
-    <p>如果你在连接 OpenClaw、使用 FridayTunnel 或管理订阅时遇到问题，可以按下面的方法排查或联系我们。</p>
+    <h1>技术支持</h1>
+    <p class="updated">最后更新日期：2026年7月28日</p>
+    <p>遇到问题了？先看看下面有没有你的情况。如果没有，直接找我们。</p>
 
     <section class="card">
-      <h2>联系支持</h2>
-      <p>一般问题和 Bug 报告请提交至 <a href="https://github.com/SyengUp/openclaw-fridaynext-channel/issues">GitHub Issues</a>。订阅或隐私问题也可发送邮件至 <a href="mailto:s826135274@icloud.com">s826135274@icloud.com</a>。</p>
-      <p>安全漏洞请勿公开提交，改走 <a href="https://github.com/SyengUp/openclaw-fridaynext-channel/security/advisories">GitHub Security Advisory</a> 私密报告，详见<a href="./transparency.html">透明度页</a>。</p>
-      <p class="note">公开提交问题时，请勿附上配对二维码、网关 Token、Apple 交易凭证、完整公网地址或其他秘密。</p>
+      <h2>联系我们</h2>
+      <p>问题反馈和 Bug 请提交到 <a href="https://github.com/SyengUp/openclaw-fridaynext-channel/issues">GitHub Issues</a>；订阅或隐私相关的事情可以直接发邮件到 <a href="mailto:s826135274@icloud.com">s826135274@icloud.com</a>。</p>
+      <p>如果是安全漏洞，请<strong>不要</strong>公开提交，改走 <a href="https://github.com/SyengUp/openclaw-fridaynext-channel/security/advisories">GitHub Security Advisory</a> 私下告诉我们。</p>
+      <p class="note">公开提问时请别贴上配对二维码、访问令牌、Apple 交易凭证或你的公网地址——那些等于把家门钥匙贴在网上。</p>
     </section>
 
-    <h2>连接 OpenClaw</h2>
-    <h3>如何安装或升级插件？</h3>
-    <p>在 OpenClaw 主机上运行 <code>npx -y @syengup/friday-channel-next</code>，然后按照终端提示完成安装或升级。</p>
+    <h2>连不上</h2>
 
-    <h3>如何配对？</h3>
-    <p>在 OpenClaw 主机生成 FridayNext 配对二维码，再使用应用内扫码功能完成配对。首次配对需要 iPhone 能访问互联网和 OpenClaw 主机。</p>
+    <h3>扫码之后没反应</h3>
+    <p>配对二维码 10 分钟就过期，而且只能用一次。如果你生成之后去忙了别的，回来多半已经失效——重新生成一个就好。</p>
+    <p>另外首次配对需要手机和跑 OpenClaw 的电脑在同一个 Wi-Fi 下。</p>
 
-    <h3>本地连接正常，但在外面无法连接</h3>
-    <p>先确认 OpenClaw 主机保持开机且网络正常，再在 FridayNext 的连接页面检查 FridayTunnel 状态。未订阅、已到期、已退款或所在 App Store 地区暂不支持销售时，FridayTunnel 不会建立公网连接；本地连接仍可继续使用。</p>
+    <h3>在家能用，出门就不行</h3>
+    <p>这是最常见的问题，按顺序检查：</p>
+    <ul>
+      <li><strong>电脑还醒着吗？</strong>Mac 合上盖子或自动睡眠后网关就离线了。去「系统设置 → 节能」里关掉自动睡眠。</li>
+      <li><strong>订阅还有效吗？</strong>在 App 的连接页看 FridayTunnel 状态。未订阅、试用到期或已退款都不会建立公网连接。</li>
+      <li><strong>插件是不是太旧了？</strong>在网关上跑一次 <code>npx -y @syengup/friday-channel-next</code> 升级。</li>
+    </ul>
+    <p>无论哪种情况，回到家里的 Wi-Fi 都能照常使用。</p>
 
-    <h2>订阅与退款</h2>
-    <h3>购买后状态没有更新</h3>
-    <p>保持网络连接并重新打开订阅页面，等待应用同步 StoreKit 和服务端状态。已有效订阅的用户无需重复点击“恢复购买”。</p>
+    <h3>怎么安装或升级插件</h3>
+    <p>在跑 OpenClaw 的机器上执行：</p>
+    <p><code>npx -y @syengup/friday-channel-next</code></p>
+    <p>按终端提示走完即可，安装和升级是同一条命令。</p>
 
-    <h3>什么时候使用“恢复购买”？</h3>
-    <p>更换设备、重装应用，或 App Store 已显示有效订阅但 FridayNext 没有识别时使用。恢复购买不会创建新订阅，也不会重复扣款。</p>
+    <h2>订阅</h2>
 
-    <h3>如何取消或申请退款？</h3>
-    <p>自动续订可在 iPhone“设置”中的 Apple 账户订阅页面取消。退款请前往 <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> 申请；退款是否批准及到账时间由 Apple 决定。</p>
+    <h3>买了但 App 说没订阅</h3>
+    <p>保持联网等一两分钟让它同步。还是不行就点「恢复购买」，或者重启 App。</p>
 
-    <h2>服务范围</h2>
-    <p>FridayTunnel 是可选公网中继服务。你可以永久免费使用本地连接，也可以自行配置 Tailscale、反向代理或其他公网连接。FridayTunnel 只转发端到端加密的数据，我们无法读取其中的任何数据内容。</p>
+    <h3>「恢复购买」什么时候用？</h3>
+    <p>换新手机、重装 App，或者 App Store 里明明显示有订阅但 App 没认出来的时候。它只是重新同步，不会重复扣费。</p>
+
+    <h3>怎么取消或退款</h3>
+    <p>取消续订在 iPhone「设置」→ 点你的头像 → 订阅 → FridayNext。取消后仍然可以用到当前周期结束。</p>
+    <p>退款要去 <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a> 申请，是否批准和多久到账由 Apple 决定，我们无法代为处理。</p>
+
+    <h2>关于 FridayTunnel</h2>
+    <p>它是可选的。本地连接永久免费，你也可以用 Tailscale、反向代理或任何自己喜欢的方案连回网关——FridayTunnel 只是省事的那个选项。</p>
+    <p>它只转发加密数据，我们读不到里面的内容。想了解具体怎么做到的，看<a href="./transparency.html">透明度页</a>。</p>
 
     <footer>
       <a href="./">隐私政策</a>
       <span>·</span>
       <a href="./terms.html">FridayTunnel 使用条款</a>
+      <span>·</span>
+      <a href="./transparency.html">透明度</a>
+      <span>·</span>
+      <a href="./faq.html">常见问题</a>
     </footer>
   </main>
 </body>
